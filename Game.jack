@@ -1,16 +1,67 @@
 class Game{
     field Map map;
-    field Monster monsters;
     field Player p;
 
     constructor Game new(){
         let map = Map.new();
-        let monsters = Monster.new();
-        let p = Player.new(); 
+        let p = Player.new(14,1); 
         return this;
     }
 
+    method void move(int npx,int npy){
+        do map.empty(0,p.getx(),p.gety());
+        do Pic.drawempty(480*p.getx()+p.gety());
+        do p.changepos(npx,npy);
+        do p.draw();
+        return;
+    }
+
     method void gameloop(){
+        var boolean continue;
+        var char key;
+        var int npx,npy,newspace;
         
+        do map.drawMap(0);
+        do p.draw();
+        do p.drawStatus();
+        
+        let continue = true;
+        while(continue){
+            do Sys.wait(100);
+            let key = Pic.getkey();
+            let npx = p.getx();
+            let npy = p.gety();
+            if(key=87){//move up
+                let npx = p.getx()-1;
+                let npy = p.gety();
+            }
+            if(key=83){//move down
+                let npx = p.getx()+1;
+                let npy = p.gety();
+            }
+            if(key=68){//move right
+                let npx = p.getx();
+                let npy = p.gety()+1;
+            }
+            if(key=65){//move left
+                let npx = p.getx();
+                let npy = p.gety()-1;
+            }
+            if(key=81){//q = quit
+                let continue = false;
+            }
+
+            let newspace = map.getnum(0,npx,npy);
+            if(newspace=0){
+                do move(npx,npy);
+            }
+            if(newspace/1000=3){
+                do Object.interact(p,newspace-3000);
+                do p.drawStatus();
+                do move(npx,npy);
+            }
+
+        }
+        return ;
     }
 }

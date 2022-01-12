@@ -1,11 +1,11 @@
 class Main {
    function void main() {
       
-      var Map m;
-      let m = Map.new();
-      do m.drawMap(0);
-      
-      do Sys.halt();
+      var Game game;
+
+      let game = Game.new();
+      do game.gameloop();
+
       return;
    }
    

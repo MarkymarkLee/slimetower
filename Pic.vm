@@ -220,3 +220,18 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
+function Pic.getkey 1
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push local 0
+return

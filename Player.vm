@@ -14,6 +14,36 @@ push argument 1
 pop this 4
 push pointer 0
 return
+function Player.getx 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Player.gety 0
+push argument 0
+pop pointer 0
+push this 4
+return
+function Player.changepos 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 3
+push argument 2
+pop this 4
+push constant 0
+return
+function Player.getindex 1
+push argument 0
+pop pointer 0
+push constant 480
+push this 3
+call Math.multiply 2
+push this 4
+add
+pop local 0
+push local 0
+return
 function Player.heal 0
 push argument 0
 pop pointer 0
@@ -138,15 +168,17 @@ call Output.printInt 1
 pop temp 0
 push constant 0
 return
-function Player.draw 1
+function Player.draw 2
 push argument 0
 pop pointer 0
-push constant 16384
 push constant 480
-add
 push this 3
 call Math.multiply 2
 push this 4
+add
+pop local 1
+push constant 16384
+push local 1
 add
 pop local 0
 push local 0

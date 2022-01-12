@@ -2,15 +2,33 @@ class Player{
 
     field int hp;
     field int atk,def;
-    field int posx,posy;
+    field int x,y;
 
     constructor Player new(int xx,int yy){
         let hp = 100;
         let atk = 10;
         let def = 0;
-        let posx = xx;
-        let posy = yy;
+        let x = xx;
+        let y = yy;
         return this;
+    }
+
+    method int getx(){
+        return x;
+    }
+    method int gety(){
+        return y;
+    }
+    method void changepos(int xx,int yy){
+        let x = xx;
+        let y = yy;
+        return ;
+    }
+
+    method int getindex(){
+        var int in;
+        let in = 480*x+y;
+        return in;
     }
 
     method void heal(){
@@ -47,7 +65,9 @@ class Player{
 
     method void draw(){
         var int memAddress;
-        let memAddress = 16384+480*posx+posy;
+        var int in;
+        let in = 480*x+y;
+        let memAddress = 16384+in;
         do Memory.poke(memAddress+0, 0);
         do Memory.poke(memAddress+32, 8184);
         do Memory.poke(memAddress+64, 10212);

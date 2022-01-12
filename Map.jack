@@ -37,7 +37,7 @@ class Map{
         let map[22] = 1000;
         let map[23] = 1000;
         let map[24] = 1000;
-        let map[25] = 2000;
+        let map[25] = 0;
         let map[26] = 0;
         let map[27] = 0;
         let map[28] = 0;
@@ -63,24 +63,24 @@ class Map{
         let map[48] = 1000;
         let map[49] = 0;
         let map[50] = 0;
-        let map[51] = 3002;
+        let map[51] = 3001;
         let map[52] = 3002;
-        let map[53] = 3002;
-        let map[54] = 3002;
+        let map[53] = 3000;
+        let map[54] = 3001;
         let map[55] = 3001;
         let map[56] = 3002;
         let map[57] = 3002;
         let map[58] = 3002;
-        let map[59] = 3001;
-        let map[60] = 3000;
-        let map[61] = 3000;
-        let map[62] = 3000;
-        let map[63] = 3001;
-        let map[64] = 3002;
-        let map[65] = 3001;
+        let map[59] = 3000;
+        let map[60] = 3001;
+        let map[61] = 3001;
+        let map[62] = 3002;
+        let map[63] = 3002;
+        let map[64] = 3000;
+        let map[65] = 3000;
         let map[66] = 3001;
-        let map[67] = 3001;
-        let map[68] = 3002;
+        let map[67] = 3000;
+        let map[68] = 3001;
         let map[69] = 0;
         let map[70] = 0;
         let map[71] = 1000;
@@ -279,25 +279,25 @@ class Map{
         let map[264] = 1000;
         let map[265] = 0;
         let map[266] = 0;
-        let map[267] = 2001;
-        let map[268] = 2002;
-        let map[269] = 2003;
-        let map[270] = 2004;
-        let map[271] = 2005;
-        let map[272] = 2006;
-        let map[273] = 2007;
-        let map[274] = 2008;
-        let map[275] = 2009;
-        let map[276] = 2010;
-        let map[277] = 2011;
-        let map[278] = 2012;
-        let map[279] = 2013;
-        let map[280] = 2014;
-        let map[281] = 2015;
-        let map[282] = 2016;
-        let map[283] = 2017;
-        let map[284] = 2018;
-        let map[285] = 2019;
+        let map[267] = 2000;
+        let map[268] = 2001;
+        let map[269] = 2002;
+        let map[270] = 2003;
+        let map[271] = 2004;
+        let map[272] = 2005;
+        let map[273] = 2006;
+        let map[274] = 2007;
+        let map[275] = 2008;
+        let map[276] = 2009;
+        let map[277] = 2010;
+        let map[278] = 2011;
+        let map[279] = 2012;
+        let map[280] = 2013;
+        let map[281] = 2014;
+        let map[282] = 2015;
+        let map[283] = 2016;
+        let map[284] = 2017;
+        let map[285] = 0;
         let map[286] = 0;
         let map[287] = 1000;
         let map[288] = 1000;
@@ -397,6 +397,10 @@ class Map{
         let map[382] = 1000;
         let map[383] = 1000;
         return ;
+    }
+
+    method int getnum(int level,int x,int y){
+        return map[level*16*24+24*x+y];
     }
 
     method void empty(int level,int x,int y){

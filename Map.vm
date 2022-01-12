@@ -220,7 +220,7 @@ pop that 0
 push constant 25
 push argument 0
 add
-push constant 2000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -428,7 +428,7 @@ pop that 0
 push constant 51
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -444,7 +444,7 @@ pop that 0
 push constant 53
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -452,7 +452,7 @@ pop that 0
 push constant 54
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -492,7 +492,7 @@ pop that 0
 push constant 59
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -500,7 +500,7 @@ pop that 0
 push constant 60
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -508,7 +508,7 @@ pop that 0
 push constant 61
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -516,7 +516,7 @@ pop that 0
 push constant 62
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -524,7 +524,7 @@ pop that 0
 push constant 63
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -532,7 +532,7 @@ pop that 0
 push constant 64
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -540,7 +540,7 @@ pop that 0
 push constant 65
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -556,7 +556,7 @@ pop that 0
 push constant 67
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -564,7 +564,7 @@ pop that 0
 push constant 68
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2156,7 +2156,7 @@ pop that 0
 push constant 267
 push argument 0
 add
-push constant 2001
+push constant 2000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2164,7 +2164,7 @@ pop that 0
 push constant 268
 push argument 0
 add
-push constant 2002
+push constant 2001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2172,7 +2172,7 @@ pop that 0
 push constant 269
 push argument 0
 add
-push constant 2003
+push constant 2002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2180,7 +2180,7 @@ pop that 0
 push constant 270
 push argument 0
 add
-push constant 2004
+push constant 2003
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2188,7 +2188,7 @@ pop that 0
 push constant 271
 push argument 0
 add
-push constant 2005
+push constant 2004
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2196,7 +2196,7 @@ pop that 0
 push constant 272
 push argument 0
 add
-push constant 2006
+push constant 2005
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2204,7 +2204,7 @@ pop that 0
 push constant 273
 push argument 0
 add
-push constant 2007
+push constant 2006
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2212,7 +2212,7 @@ pop that 0
 push constant 274
 push argument 0
 add
-push constant 2008
+push constant 2007
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2220,7 +2220,7 @@ pop that 0
 push constant 275
 push argument 0
 add
-push constant 2009
+push constant 2008
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2228,7 +2228,7 @@ pop that 0
 push constant 276
 push argument 0
 add
-push constant 2010
+push constant 2009
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2236,7 +2236,7 @@ pop that 0
 push constant 277
 push argument 0
 add
-push constant 2011
+push constant 2010
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2244,7 +2244,7 @@ pop that 0
 push constant 278
 push argument 0
 add
-push constant 2012
+push constant 2011
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2252,7 +2252,7 @@ pop that 0
 push constant 279
 push argument 0
 add
-push constant 2013
+push constant 2012
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2260,7 +2260,7 @@ pop that 0
 push constant 280
 push argument 0
 add
-push constant 2014
+push constant 2013
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2268,7 +2268,7 @@ pop that 0
 push constant 281
 push argument 0
 add
-push constant 2015
+push constant 2014
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2276,7 +2276,7 @@ pop that 0
 push constant 282
 push argument 0
 add
-push constant 2016
+push constant 2015
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2284,7 +2284,7 @@ pop that 0
 push constant 283
 push argument 0
 add
-push constant 2017
+push constant 2016
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2292,7 +2292,7 @@ pop that 0
 push constant 284
 push argument 0
 add
-push constant 2018
+push constant 2017
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2300,7 +2300,7 @@ pop that 0
 push constant 285
 push argument 0
 add
-push constant 2019
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3090,6 +3090,25 @@ pop pointer 1
 push temp 0
 pop that 0
 push constant 0
+return
+function Map.getnum 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 16
+call Math.multiply 2
+push constant 24
+call Math.multiply 2
+push constant 24
+add
+push argument 2
+call Math.multiply 2
+push argument 3
+add
+push this 0
+add
+pop pointer 1
+push that 0
 return
 function Map.empty 0
 push argument 0
