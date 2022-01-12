@@ -3091,6 +3091,11 @@ push temp 0
 pop that 0
 push constant 0
 return
+function Map.getMob 0
+push argument 0
+pop pointer 0
+push this 1
+return
 function Map.getnum 0
 push argument 0
 pop pointer 0
@@ -3170,7 +3175,7 @@ add
 pop pointer 1
 push that 0
 pop local 2
-push constant 480
+push constant 512
 push local 0
 call Math.multiply 2
 push local 1

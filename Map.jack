@@ -399,6 +399,10 @@ class Map{
         return ;
     }
 
+    method Monster getMob(){
+        return mob;
+    }
+
     method int getnum(int level,int x,int y){
         return map[level*16*24+24*x+y];
     }
@@ -418,7 +422,7 @@ class Map{
             while(j<24){
 
                 let k = map[level*16*24+i*24+j];
-                let loc = 480*i+j;
+                let loc = 512*i+j;
                 if(k=0){
                     do Pic.drawempty(loc);
                 }

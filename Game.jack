@@ -1,16 +1,18 @@
 class Game{
     field Map map;
     field Player p;
+    field Monster mob;
 
     constructor Game new(){
         let map = Map.new();
         let p = Player.new(14,1); 
+        let mob = map.getMob();
         return this;
     }
 
     method void move(int npx,int npy){
         do map.empty(0,p.getx(),p.gety());
-        do Pic.drawempty(480*p.getx()+p.gety());
+        do Pic.drawempty(512*p.getx()+p.gety());
         do p.changepos(npx,npy);
         do p.draw();
         return;
