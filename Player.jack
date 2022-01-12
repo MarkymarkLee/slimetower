@@ -1,0 +1,70 @@
+class Player{
+
+    field int hp;
+    field int atk,def;
+    field int posx,posy;
+
+    constructor Player new(int xx,int yy){
+        let hp = 100;
+        let atk = 10;
+        let def = 0;
+        let posx = xx;
+        let posy = yy;
+        return this;
+    }
+
+    method void heal(){
+        let hp = hp + 30;
+        if(hp>100){
+            let hp = 100;
+        }
+        return ;
+    }
+
+    method void addATK(){
+        let atk = atk + 6;
+        return ;
+    }
+    method void addDEF(){
+        let def = def + 4;
+        return ;
+    }
+
+    method void drawStatus(){
+        do Output.moveCursor(1,50);
+        do Output.printString("Player");
+        do Output.moveCursor(3,50);
+        do Output.printString("HP  :");
+        do Output.printInt(hp);
+        do Output.moveCursor(5,50);
+        do Output.printString("ATK :");
+        do Output.printInt(atk);
+        do Output.moveCursor(7,50);
+        do Output.printString("DEF :");
+        do Output.printInt(def);
+        return ;
+    }   
+
+    method void draw(){
+        var int memAddress;
+        let memAddress = 16384+480*posx+posy;
+        do Memory.poke(memAddress+0, 0);
+        do Memory.poke(memAddress+32, 8184);
+        do Memory.poke(memAddress+64, 10212);
+        do Memory.poke(memAddress+96, 10260);
+        do Memory.poke(memAddress+128, 28686);
+        do Memory.poke(memAddress+160, 29262);
+        do Memory.poke(memAddress+192, 29262);
+        do Memory.poke(memAddress+224, -28664);
+        do Memory.poke(memAddress+256, 26640);
+        do Memory.poke(memAddress+288, 8184);
+        do Memory.poke(memAddress+320, 8184);
+        do Memory.poke(memAddress+352, 3408);
+        do Memory.poke(memAddress+384, 2736);
+        do Memory.poke(memAddress+416, 4080);
+        do Memory.poke(memAddress+448, 1056);
+        do Memory.poke(memAddress+480, 0);
+        return;
+    }
+
+}

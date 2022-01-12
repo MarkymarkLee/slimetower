@@ -1,0 +1,225 @@
+
+<!-- saved from url=(0053)https://classes.engineering.wustl.edu/cse365/jack.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="./Jack Reference_files/css" rel="stylesheet" type="text/css">
+<link href="./Jack Reference_files/css(1)" rel="stylesheet" type="text/css">
+<link href="./Jack Reference_files/cse365.css" rel="stylesheet" type="text/css">
+<title>Jack Reference</title>
+<script type="text/javascript" language="JavaScript"><!--
+function HideContent(d) {
+document.getElementById(d).style.display = "none";
+}
+function ShowContent(d) {
+document.getElementById(d).style.display = "block";
+}
+function ReverseDisplay(d) {
+if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+else { document.getElementById(d).style.display = "none"; }
+}
+//--></script>
+<style shopback-extension-v6-6-11="" data-styled-version="4.2.0"></style></head>
+
+<body>
+
+<table id="outercontainer">
+<tbody><tr><td id="framecontent">
+<div class="innertube">
+
+<h1>CSE365</h1>
+<h3>Elements of Computing Systems</h3>
+<ul>
+<li><a href="https://classes.engineering.wustl.edu/cse365/index.php" class="menu">Home</a>
+</li><li><a href="http://piazza.com/wustl/spring2015/cse365" class="menu">Piazza</a>
+</li><li><a href="https://classes.engineering.wustl.edu/cse365/lectures.php" class="menu">Lectures</a>
+</li><li><a href="https://classes.engineering.wustl.edu/cse365/software.php" class="menu">Software</a>
+</li><li><a href="https://classes.engineering.wustl.edu/cse365/code.php" class="menu">Writing Code</a>
+</li><li><a href="https://classes.engineering.wustl.edu/cse365/jack.php" class="menu">Jack API</a>
+</li><li><a href="https://classes.engineering.wustl.edu/cse365/final.php" class="menu">Exam</a>
+</li><li><a href="https://classes.engineering.wustl.edu/cse365/assignments.php" class="menu">Assignments</a>
+    <ul>
+        <li><a href="https://classes.engineering.wustl.edu/cse365/a13.php" class="menu">#13</a>
+        </li><li><a href="https://classes.engineering.wustl.edu/cse365/a11.php" class="menu">#11/#12</a>
+        </li><li><a href="https://classes.engineering.wustl.edu/cse365/a10.php" class="menu">#10</a>
+        </li><li><a href="https://classes.engineering.wustl.edu/cse365/a9.php" class="menu">#9</a>
+        </li><li><a href="https://classes.engineering.wustl.edu/cse365/a8.php" class="menu">#8</a>
+        </li><li><a href="https://classes.engineering.wustl.edu/cse365/a7.php" class="menu">#7</a>
+    </li></ul>
+</li></ul>
+</div>
+</td>
+<td id="maincontent">
+<div class="innertube">
+<h1>Jack Reference</h1>
+
+
+<h2>Syntax Reference</h2>
+<a href="javascript:ReverseDisplay(&#39;s1&#39;)" class="btng">Lexical Elements</a><br>
+<div id="s1" style="display: block;" class="notes">
+<h3>Keywords</h3>
+<table class="notes_table">
+<tbody><tr><td>class</td><td>method</td><td>function</td><td>constructor</td><td></td><td>
+</td></tr><tr><td>int</td><td>boolean</td><td>char</td><td>void</td><td></td><td>
+</td></tr><tr><td>var</td><td>static</td><td>field</td><td></td><td></td><td>
+</td></tr><tr><td>let</td><td>do</td><td>if</td><td>else</td><td>while</td><td>return
+</td></tr><tr><td>true</td><td>false</td><td>null</td><td>this</td><td></td><td>
+</td></tr></tbody></table>
+<h3>Symbols</h3>
+<table class="notes_table">
+<tbody><tr><td>{</td><td>}</td><td>(</td><td>)</td><td>[</td><td>]</td><td>
+</td></tr><tr><td>.</td><td>,</td><td>;</td><td>+</td><td>-</td><td>*</td><td>/
+</td></tr><tr><td>&amp;</td><td>|</td><td>&lt;</td><td>&gt;</td><td>=</td><td>~</td><td>
+</td></tr></tbody></table>
+<h3>Integer Constants</h3>
+A decimal number in the range 0..32767
+<h3>String Constant</h3>
+A sequence of unicode characters not including double quote or newline, surrounded by double quotes
+<h3>Identifiers</h3>
+A sequence of letters, digits and underscore, not starting with a digit
+
+</div>  
+
+<h2>The Jack OS API</h2>
+<p>The Jack language comes with a collection of eight built-in classes that extend the language's
+capabilities. This standard library, which can also be viewed as a basic operating system, includes
+the following classes, all implemented in Jack:</p>
+
+<a href="javascript:ReverseDisplay(&#39;aaa1&#39;)" class="btng">Math</a><br>
+<div id="aaa1" style="display: none;" class="notes">
+This class enables various mathematical operations.<br>
+<table class="notes_table">
+<tbody><tr><td>function int abs(int x)</td><td> returns the absolute value of x.
+</td></tr><tr><td>function int multiply(int x, int y)</td><td> returns the product of x and y.
+</td></tr><tr><td>function int divide(int x, int y)</td><td> returns the integer part of x/y.
+</td></tr><tr><td>function int min(int x, int y)</td><td> returns the minimum of x and y.
+</td></tr><tr><td>function int max(int x, int y)</td><td> returns the maximum of x and y.
+</td></tr><tr><td>function int sqrt(int x)</td><td> returns the integer part of the square root of x.
+</td></tr></tbody></table></div>    
+
+<a href="javascript:ReverseDisplay(&#39;aaa2&#39;)" class="btng">String</a><br>
+<div id="aaa2" style="display: none;" class="notes">
+
+This class implements the String data type and various string-related operations.<br>
+<table class="notes_table">
+<tbody><tr><td>constructor String new(int maxLength)</td><td> constructs a new empty string (of length zero) that can contain at most maxLength characters.
+</td></tr><tr><td>method void dispose()</td><td> disposes this string.
+</td></tr><tr><td>method int length()</td><td> returns the length of this string.
+</td></tr><tr><td>method char charAt(int j)</td><td> returns the character at location j of this string.
+</td></tr><tr><td>method void setCharAt(int j, char c)</td><td> sets the j-th element of this string to c.
+</td></tr><tr><td>method String appendChar(char c)</td><td> appends c to this string and returns this string.
+</td></tr><tr><td>method void eraseLastChar()</td><td> erases the last character from this string.
+</td></tr><tr><td>method int intValue()</td><td> returns the integer value of this string (or the string prefix until a non-
+digit character is detected).
+</td></tr><tr><td>method void setInt(int j)</td><td> sets this string to hold a representation of j.
+</td></tr><tr><td>function char backSpace()</td><td> returns the backspace character.
+</td></tr><tr><td>function char doubleQuote()</td><td> returns the double quote (") character.
+</td></tr><tr><td>function char newLine()</td><td> returns the newline character.
+</td></tr></tbody></table></div>    
+
+<a href="javascript:ReverseDisplay(&#39;aaa3&#39;)" class="btng">Array</a><br>
+<div id="aaa3" style="display: none;" class="notes">
+
+This class enables the construction and disposal of arrays.<br>
+<table class="notes_table">
+<tbody><tr><td>function Array new(int size)</td><td> constructs a new array of the given size.
+</td></tr><tr><td>method void dispose()</td><td> disposes this array.
+</td></tr></tbody></table></div>
+
+
+<a href="javascript:ReverseDisplay(&#39;aaa9&#39;)" class="btng">Output</a><br>
+<div id="aaa9" style="display: none;" class="notes">
+This class allows writing text on the screen.<br>
+<table class="notes_table">
+<tbody><tr><td>function void moveCursor(int i, int j)</td><td> moves the cursor to the j-th column of the i-th row, and
+erases the character displayed there.
+</td></tr><tr><td>function void printChar(char c)</td><td> prints c at the cursor location and advances the cursor one
+column forward.
+</td></tr><tr><td>function void printString(String s)</td><td> prints s starting at the cursor location and advances the
+cursor appropriately.
+</td></tr><tr><td>function void printInt(int i)</td><td> prints i starting at the cursor location and advances the cursor
+appropriately.
+</td></tr><tr><td>function void println()</td><td> advances the cursor to the beginning of the next line.
+</td></tr><tr><td>function void backSpace()</td><td> moves the cursor one column back.
+</td></tr></tbody></table></div>    
+
+<a href="javascript:ReverseDisplay(&#39;aaa4&#39;)" class="btng">Screen</a><br>
+<div id="aaa4" style="display: none;" class="notes">
+
+This class allows drawing graphics on the screen. Column indices start at 0 and are left-to-right.
+Row indices start at 0 and are top-to-bottom. The screen size is hardware-dependant (in the Hack
+platform: 256 rows by 512 columns).<br>
+<table class="notes_table">
+<tbody><tr><td>function void clearScreen()</td><td> erases the entire screen.
+</td></tr><tr><td>function void setColor(boolean b)</td><td> sets a color (white=false, black=true) to be used for all
+further drawXXX commands.
+</td></tr><tr><td>function void drawPixel(int x, int y)</td><td> draws the (x,y) pixel.
+</td></tr><tr><td>function void drawLine(int x1, int y1, int x2, int y2)</td><td> draws a line from pixel (x1,y1) to pixel
+(x2,y2).
+</td></tr><tr><td>function void drawRectangle(int x1, int y1, int x2, int y2)</td><td> draws a filled rectangle whose top
+left corner is (x1, y1) and bottom right corner is (x2,y2).
+</td></tr><tr><td>function void drawCircle(int x, int y, int r)</td><td> draws a filled circle of radius r&lt;=181 around (x,y).
+</td></tr></tbody></table></div>    
+
+<a href="javascript:ReverseDisplay(&#39;aaa5&#39;)" class="btng">Keyboard</a><br>
+<div id="aaa5" style="display: none;" class="notes">
+
+This class allows reading inputs from a standard keyboard.<br>
+<table class="notes_table">
+<tbody><tr><td>function char keyPressed()</td><td> returns the character of the currently pressed key on the keyboard; if
+no key is currently pressed, returns 0.
+</td></tr><tr><td>function char readChar()</td><td> waits until a key is pressed on the keyboard and released, then echoes
+the key to the screen and returns the character of the pressed key.
+</td></tr><tr><td>function String readLine(String message)</td><td> prints the message on the screen, reads the line (text
+until a newline character is detected) from the keyboard, echoes the line to the screen, and returns
+its value. This function also handles user backspaces.
+</td></tr><tr><td>function int readInt(String message)</td><td> prints the message on the screen, reads the line (text until
+a newline character is detected) from the keyboard, echoes the line to the screen, and returns its
+integer value (until the first non-digit character in the line is detected). This function also handles
+user backspaces.
+</td></tr></tbody></table>
+
+<h5>Special Keys:</h5>
+<table class="notes_table">
+<tbody><tr><th>Key Pressed</th><th>Keyboard output
+</th></tr><tr><td>newline</td><td>128
+</td></tr><tr><td>backspace</td><td>129
+</td></tr><tr><td>left arrow</td><td>130
+</td></tr><tr><td>up arrow</td><td>131
+</td></tr><tr><td>right arrow</td><td>132
+</td></tr><tr><td>down arrow</td><td>133
+</td></tr><tr><td>home</td><td>134
+</td></tr><tr><td>end</td><td>135
+</td></tr><tr><td>page up</td><td>136
+</td></tr><tr><td>page down</td><td>137
+</td></tr><tr><td>insert</td><td>138
+</td></tr><tr><td>delete</td><td>139
+</td></tr><tr><td>escape</td><td>140
+</td></tr><tr><td>f1-f12</td><td>141-152
+</td></tr></tbody></table>
+
+</div>    
+
+<a href="javascript:ReverseDisplay(&#39;aaa6&#39;)" class="btng">Memory</a><br>
+<div id="aaa6" style="display: none;" class="notes">
+
+This class allows direct access to the main memory of the host platform.<br>
+<table class="notes_table">
+<tbody><tr><td>function int peek(int address)</td><td> returns the value of the main memory at this address.
+</td></tr><tr><td>function void poke(int address, int value)</td><td> sets the contents of the main memory at this address to
+value.
+</td></tr><tr><td>function Array alloc(int size)</td><td> finds and allocates from the heap a memory block of the specified
+size and returns a reference to its base address.
+</td></tr><tr><td>function void deAlloc(Array o)</td><td> De-allocates the given object and frees its memory space.
+</td></tr></tbody></table></div>    
+
+<a href="javascript:ReverseDisplay(&#39;aaa7&#39;)" class="btng">Sys</a><br>
+<div id="aaa7" style="display: none;" class="notes">
+
+This class supports some execution-related services.<br>
+<table class="notes_table">
+<tbody><tr><td>function void halt()</td><td> halts the program execution.
+</td></tr><tr><td>function void error(int errorCode)</td><td> prints the <a href="https://classes.engineering.wustl.edu/cse365/error_codes.php">error code</a> on the screen and halts.
+</td></tr><tr><td>function void wait(int duration)</td><td> waits approximately duration milliseconds and returns.
+</td></tr></tbody></table></div>    
+
+
+</div></td></tr></tbody></table></body><div id="shopback-app" style="z-index: 2147483647 !important; display: block !important;"></div></html>
