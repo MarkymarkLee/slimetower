@@ -220,6 +220,213 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
+function Pic.drawstairsup 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 4
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 32654
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 16533
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 16516
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 32740
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 16420
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 16416
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 32760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 16392
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 16392
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Pic.drawstairsdown 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 4098
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 4098
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 8190
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 1026
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 9218
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 10238
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 8450
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 22270
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 29182
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 8192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
 function Pic.getkey 1
 push constant 0
 pop local 0

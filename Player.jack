@@ -13,11 +13,70 @@ class Player{
         return this;
     }
 
+    method void setStartingLocation(int level,int uod){
+        if(level = 1){
+            if(uod=1){//up
+                let x = 14;
+                let y = 1;
+            }
+            if(uod=0){//down
+                let x = 1;
+                let y = 22;
+            }
+        }
+        if(level = 2){
+            if(uod=1){//up
+                let x = 14;
+                let y = 1;
+            }
+            if(uod=0){//down
+                let x = 1;
+                let y = 22;
+            }
+        }
+        if(level = 3){
+            if(uod=1){//up
+                let x = 14;
+                let y = 1;
+            }
+            if(uod=0){//down
+                let x = 1;
+                let y = 22;
+            }
+        }
+        if(level = 4){
+            if(uod=1){//up
+                let x = 14;
+                let y = 1;
+            }
+            if(uod=0){//down
+                let x = 1;
+                let y = 22;
+            }
+        }
+        return ;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return ;
+    }
+
+    method int isdead(){
+        if(hp>0){
+            return 0;
+        }
+        return 1;
+    }
+
     method int getx(){
         return x;
     }
     method int gety(){
         return y;
+    }
+    method int getATK(){
+        return atk;
     }
     method void changepos(int xx,int yy){
         let x = xx;
@@ -48,7 +107,19 @@ class Player{
         return ;
     }
 
+    method void damage(int d){
+        if(d>def){
+            let hp = hp-d+def;
+        }
+        if(d<def){
+            let hp = hp-1;
+        }
+        return;
+    }
+
     method void drawStatus(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(384,0,511,127);
         do Output.moveCursor(1,50);
         do Output.printString("Player");
         do Output.moveCursor(3,50);

@@ -1,5 +1,5 @@
 function Game.new 0
-push constant 3
+push constant 4
 call Memory.alloc 1
 pop pointer 0
 call Map.new 0
@@ -11,6 +11,8 @@ pop this 1
 push this 0
 call Map.getMob 1
 pop this 2
+push constant 0
+pop this 3
 push pointer 0
 return
 function Game.move 0
@@ -43,11 +45,28 @@ call Player.draw 1
 pop temp 0
 push constant 0
 return
-function Game.gameloop 5
+function Game.dispose 0
 push argument 0
 pop pointer 0
 push this 0
+call Map.dispose 1
+pop temp 0
+push this 2
+call Monster.dispose 1
+pop temp 0
+push this 1
+call Player.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 0
+return
+function Game.gameloop 7
+push argument 0
+pop pointer 0
+push this 0
+push this 3
 call Map.drawMap 2
 pop temp 0
 push this 1
@@ -59,22 +78,24 @@ pop temp 0
 push constant 0
 not
 pop local 0
+push constant 0
+pop local 1
 label WHILE_EXP0
 push local 0
 not
 if-goto WHILE_END0
-push constant 100
+push constant 200
 call Sys.wait 1
 pop temp 0
 call Pic.getkey 0
-pop local 1
-push this 1
-call Player.getx 1
 pop local 2
 push this 1
-call Player.gety 1
+call Player.getx 1
 pop local 3
-push local 1
+push this 1
+call Player.gety 1
+pop local 4
+push local 2
 push constant 87
 eq
 if-goto IF_TRUE0
@@ -84,12 +105,12 @@ push this 1
 call Player.getx 1
 push constant 1
 sub
-pop local 2
+pop local 3
 push this 1
 call Player.gety 1
-pop local 3
+pop local 4
 label IF_FALSE0
-push local 1
+push local 2
 push constant 83
 eq
 if-goto IF_TRUE1
@@ -99,12 +120,12 @@ push this 1
 call Player.getx 1
 push constant 1
 add
-pop local 2
+pop local 3
 push this 1
 call Player.gety 1
-pop local 3
+pop local 4
 label IF_FALSE1
-push local 1
+push local 2
 push constant 68
 eq
 if-goto IF_TRUE2
@@ -112,14 +133,14 @@ goto IF_FALSE2
 label IF_TRUE2
 push this 1
 call Player.getx 1
-pop local 2
+pop local 3
 push this 1
 call Player.gety 1
 push constant 1
 add
-pop local 3
+pop local 4
 label IF_FALSE2
-push local 1
+push local 2
 push constant 65
 eq
 if-goto IF_TRUE3
@@ -127,14 +148,14 @@ goto IF_FALSE3
 label IF_TRUE3
 push this 1
 call Player.getx 1
-pop local 2
+pop local 3
 push this 1
 call Player.gety 1
 push constant 1
 sub
-pop local 3
+pop local 4
 label IF_FALSE3
-push local 1
+push local 2
 push constant 81
 eq
 if-goto IF_TRUE4
@@ -144,24 +165,24 @@ push constant 0
 pop local 0
 label IF_FALSE4
 push this 0
-push constant 0
-push local 2
+push this 3
 push local 3
-call Map.getnum 4
-pop local 4
 push local 4
+call Map.getnum 4
+pop local 5
+push local 5
 push constant 0
 eq
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5
 push pointer 0
-push local 2
 push local 3
+push local 4
 call Game.move 3
 pop temp 0
 label IF_FALSE5
-push local 4
+push local 5
 push constant 1000
 call Math.divide 2
 push constant 3
@@ -170,7 +191,7 @@ if-goto IF_TRUE6
 goto IF_FALSE6
 label IF_TRUE6
 push this 1
-push local 4
+push local 5
 push constant 3000
 sub
 call Object.interact 2
@@ -179,12 +200,120 @@ push this 1
 call Player.drawStatus 1
 pop temp 0
 push pointer 0
-push local 2
 push local 3
+push local 4
 call Game.move 3
 pop temp 0
 label IF_FALSE6
+push local 5
+push constant 1000
+call Math.divide 2
+push constant 4
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push local 5
+push constant 4000
+sub
+push constant 1
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push this 3
+push constant 1
+add
+pop this 3
+label IF_FALSE8
+push local 5
+push constant 4000
+sub
+push constant 0
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push this 3
+push constant 1
+sub
+pop this 3
+label IF_FALSE9
+push this 0
+push this 3
+call Map.drawMap 2
+pop temp 0
+push this 1
+call Player.draw 1
+pop temp 0
+push this 1
+call Player.drawStatus 1
+pop temp 0
+label IF_FALSE7
+push local 5
+push constant 1000
+call Math.divide 2
+push constant 2
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push this 2
+push local 5
+push constant 2000
+sub
+push this 1
+call Monster.combat 3
+pop local 6
+push this 1
+call Player.drawStatus 1
+pop temp 0
+push this 2
+push local 5
+push constant 2000
+sub
+call Monster.drawStatus 2
+pop temp 0
+push local 6
+push constant 1
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push constant 0
+pop local 0
+label IF_FALSE11
+push local 6
+push constant 2
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push this 0
+push this 3
+push local 3
+push local 4
+call Map.empty 4
+pop temp 0
+push constant 512
+push local 3
+call Math.multiply 2
+push local 4
+add
+call Pic.drawempty 1
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 384
+push constant 128
+push constant 511
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE12
+label IF_FALSE10
 goto WHILE_EXP0
 label WHILE_END0
-push constant 0
+push local 1
 return

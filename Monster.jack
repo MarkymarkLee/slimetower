@@ -18,6 +18,40 @@ class Monster{
         return this;
     }
 
+    method void dispose(){
+        do hp.dispose();
+        do atk.dispose();
+        do Memory.deAlloc(this);
+        return ;
+    }
+
+    method int combat(int in,Player p){
+        let hp[in] = hp[in] - p.getATK();
+        do p.damage(atk[in]);
+
+        if(p.isdead()=1){
+            return 1;
+        }
+        if(hp[in]<1){
+            return 2;
+        }
+        return 0;
+    }
+
+    method void drawStatus(int in){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(384,128,511,255);
+        do Output.moveCursor(15,50);
+        do Output.printString("Mob");
+        do Output.moveCursor(17,50);
+        do Output.printString("HP  :");
+        do Output.printInt(hp[in]);
+        do Output.moveCursor(19,50);
+        do Output.printString("ATK :");
+        do Output.printInt(atk[in]);
+        return ;
+    }
+
     method void draw(int location,int index){
         var int memAddress,type;
         let memAddress = 16384+location;
@@ -41,8 +75,43 @@ class Monster{
             do Memory.poke(memAddress+480, 0);
             return;
         }
-        else{
-            do Sys.error(100);
+        if(type=1){
+            do Memory.poke(memAddress+0, 0);
+            do Memory.poke(memAddress+32, 1024);
+            do Memory.poke(memAddress+64, 512);
+            do Memory.poke(memAddress+96, 384);
+            do Memory.poke(memAddress+128, 2016);
+            do Memory.poke(memAddress+160, 8184);
+            do Memory.poke(memAddress+192, 16380);
+            do Memory.poke(memAddress+224, 14748);
+            do Memory.poke(memAddress+256, 31134);
+            do Memory.poke(memAddress+288, 31134);
+            do Memory.poke(memAddress+320, 32766);
+            do Memory.poke(memAddress+352, 16380);
+            do Memory.poke(memAddress+384, 16380);
+            do Memory.poke(memAddress+416, 8184);
+            do Memory.poke(memAddress+448, 960);
+            do Memory.poke(memAddress+480, 0);
+            return;
+        }
+        if(type=2){
+            do Memory.poke(memAddress+0, 0);
+            do Memory.poke(memAddress+32, 1024);
+            do Memory.poke(memAddress+64, 512);
+            do Memory.poke(memAddress+96, 384);
+            do Memory.poke(memAddress+128, 1632);
+            do Memory.poke(memAddress+160, 6168);
+            do Memory.poke(memAddress+192, 9828);
+            do Memory.poke(memAddress+224, 10644);
+            do Memory.poke(memAddress+256, 18834);
+            do Memory.poke(memAddress+288, 18834);
+            do Memory.poke(memAddress+320, 20466);
+            do Memory.poke(memAddress+352, 9828);
+            do Memory.poke(memAddress+384, 8196);
+            do Memory.poke(memAddress+416, 7224);
+            do Memory.poke(memAddress+448, 960);
+            do Memory.poke(memAddress+480, 0);
+            return;
         }
         return ;
     }

@@ -1,9 +1,3 @@
-function Object.new 0
-push constant 0
-call Memory.alloc 1
-pop pointer 0
-push pointer 0
-return
 function Object.interact 0
 push argument 1
 push constant 0
@@ -284,85 +278,85 @@ pop temp 0
 push local 0
 push constant 32
 add
-push constant 254
+push constant 128
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 64
 add
-push constant 130
+push constant 4228
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 96
 add
-push constant 130
+push constant 2244
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 128
 add
-push constant 1022
+push constant 5450
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 160
 add
-push constant 514
+push constant 5426
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 192
 add
-push constant 514
+push constant 8722
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 224
 add
-push constant 4094
+push constant 8196
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 256
 add
-push constant 2050
+push constant 8712
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 288
 add
-push constant 2050
+push constant 9572
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 320
 add
-push constant 16382
+push constant 5540
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 352
 add
-push constant 8194
+push constant 5156
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 384
 add
-push constant 8194
+push constant 4680
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 416
 add
-push constant 16382
+push constant 3504
 call Memory.poke 2
 pop temp 0
 push local 0
 push constant 448
 add
-push constant 0
+push constant 960
 call Memory.poke 2
 pop temp 0
 push local 0
