@@ -19,7 +19,7 @@ function Game.move 0
 push argument 0
 pop pointer 0
 push this 0
-push constant 0
+push this 3
 push this 1
 call Player.getx 1
 push this 1
@@ -213,6 +213,14 @@ eq
 if-goto IF_TRUE7
 goto IF_FALSE7
 label IF_TRUE7
+push this 0
+push this 3
+push this 1
+call Player.getx 1
+push this 1
+call Player.gety 1
+call Map.empty 4
+pop temp 0
 push local 5
 push constant 4000
 sub

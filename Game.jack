@@ -13,7 +13,7 @@ class Game{
     }
 
     method void move(int npx,int npy){
-        do map.empty(0,p.getx(),p.gety());
+        do map.empty(currentLevel,p.getx(),p.gety());
         do Pic.drawempty(512*p.getx()+p.gety());
         do p.changepos(npx,npy);
         do p.draw();
@@ -74,6 +74,7 @@ class Game{
                 do move(npx,npy);
             }
             if(newspace/1000=4){
+                do map.empty(currentLevel,p.getx(),p.gety());
                 if(newspace-4000=1){
                     let currentLevel = currentLevel+1;
                 }

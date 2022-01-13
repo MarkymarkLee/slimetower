@@ -100,10 +100,16 @@ class Player{
 
     method void addATK(){
         let atk = atk + 6;
+        if(atk>50){
+            let atk = 50;
+        }
         return ;
     }
     method void addDEF(){
         let def = def + 4;
+        if(def>50){
+            let def = 50;
+        }
         return ;
     }
 
@@ -120,16 +126,12 @@ class Player{
     method void drawStatus(){
         do Screen.setColor(false);
         do Screen.drawRectangle(384,0,511,127);
-        do Output.moveCursor(1,50);
-        do Output.printString("Player");
-        do Output.moveCursor(3,50);
-        do Output.printString("HP  :");
+        do Str.pstr(1,50,0);
+        do Str.pstr(3,50,1);
         do Output.printInt(hp);
-        do Output.moveCursor(5,50);
-        do Output.printString("ATK :");
+        do Str.pstr(5,50,2);
         do Output.printInt(atk);
-        do Output.moveCursor(7,50);
-        do Output.printString("DEF :");
+        do Str.pstr(7,50,3);
         do Output.printInt(def);
         return ;
     }   

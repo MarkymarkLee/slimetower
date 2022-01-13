@@ -33,6 +33,7 @@ class Monster{
             return 1;
         }
         if(hp[in]<1){
+            let hp[in] = 0;
             return 2;
         }
         return 0;
