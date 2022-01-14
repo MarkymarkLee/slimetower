@@ -1,7 +1,6 @@
 class Main {
    function void main() {
 
-      
       var Game game;
       var boolean win,con,g;
       var int key;

@@ -1,0 +1,26 @@
+class Boss{
+
+    field Array hp;
+    field Array atk;
+
+    constructor Boss new(){
+
+        var int i;
+
+        let hp = Array.new(5);
+        let atk = Array.new(5);
+
+        let hp[0] = 1000;
+        let atk[0] = 100;
+
+        let i = 1;
+        while(i<5){
+            let hp[i] = 250;
+            let atk[i] = 200;
+        }
+
+        return this;
+    }
+
+    
+}

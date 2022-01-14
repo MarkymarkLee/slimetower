@@ -20,6 +20,13 @@ class Game{
         return;
     }
 
+    function boolean inwalkway(int x,int y){
+        if( (x<13) & (x>7) & (y>10) & (y<13)){
+            return true;
+        }
+        return false;
+    }
+
     method void dispose(){
         do map.dispose();
         do mob.dispose();
@@ -40,7 +47,7 @@ class Game{
         let continue = true;
         let win = false;
         while(continue){
-            do Sys.wait(200);
+            do Sys.wait(150);
             let key = Pic.getkey();
             let npx = p.getx();
             let npy = p.gety();
@@ -64,45 +71,87 @@ class Game{
                 let continue = false;
             }
 
-            let newspace = map.getnum(currentLevel,npx,npy);
-            if(newspace=0){
-                do move(npx,npy);
-            }
-            if(newspace/1000=3){
-                do Object.interact(p,newspace-3000);
-                do p.drawStatus();
-                do move(npx,npy);
-            }
-            if(newspace/1000=4){
-                do map.empty(currentLevel,p.getx(),p.gety());
-                if(newspace-4000=1){
-                    let currentLevel = currentLevel+1;
+            if(currentLevel=4){
+                let newspace = map.getnum(currentLevel,npx,npy);
+                if(newspace=0){
+                    do move(npx,npy);
                 }
-                if(newspace-4000=0){
-                    let currentLevel = currentLevel-1;
+                if(newspace=5000){
+                    let continue=false;
                 }
-                do map.drawMap(currentLevel);
-                do p.draw();
-                do p.drawStatus();
-            }
-            if(newspace/1000=2){
-                let result = mob.combat(newspace-2000,p);
+                if(newspace/1000=4){
+                    do map.empty(currentLevel,p.getx(),p.gety());
+                    if(newspace-4000=1){
+                        let currentLevel = currentLevel+1;
+                    }
+                    if(newspace-4000=0){
+                        let currentLevel = currentLevel-1;
+                    }
 
-                //add animation
-
-                do p.drawStatus();
-                do mob.drawStatus(newspace-2000);
-                if(result = 1){
-                    let continue = false;
+                    do map.drawMap(currentLevel);
+                    do p.draw();
+                    do p.drawStatus();
                 }
-                if(result = 2){
-                    do map.empty(currentLevel,npx,npy);
-                    do Pic.drawempty(512*npx+npy);
-                    do Screen.setColor(false);
-                    do Screen.drawRectangle(384,128,511,255);
+                if(Game.inwalkway(npx,npy)){
+                    do map.fire(npx,10);
+                    do map.fire(npx,13);
+                    do map.empty(4,npx,11);
+                    do map.empty(4,npx,12);
+                    do Pic.drawfire(512*npx+10);
+                    do Pic.drawfire(512*npx+13);
+                    do Pic.drawempty(512*npx+11);
+                    do Pic.drawempty(512*npx+12);
+                    do move(npx,npy);
+                }
+                if(npx=7){
+                    //fire animation
+
+                }
+                
+            }
+            else{
+                let newspace = map.getnum(currentLevel,npx,npy);
+                if(newspace=0){
+                    do move(npx,npy);
+                }
+                if(newspace/1000=3){
+                    do Object.interact(p,newspace-3000);
+                    do p.drawStatus();
+                    do move(npx,npy);
+                }
+                if(newspace/1000=2){
+                    let result = mob.combat(newspace-2000,p);
+
+                    //add animation
+
+                    do p.drawStatus();
+                    do mob.drawStatus(newspace-2000);
+                    if(result = 1){
+                        let continue = false;
+                    }
+                    if(result = 2){
+                        do map.empty(currentLevel,npx,npy);
+                        do Pic.drawempty(512*npx+npy);
+                        do Screen.setColor(false);
+                        do Screen.drawRectangle(384,128,511,255);
+                    }
+                }
+                if(newspace/1000=4){
+                    do map.empty(currentLevel,p.getx(),p.gety());
+                    if(newspace-4000=1){
+                        let currentLevel = currentLevel+1;
+                    }
+                    if(newspace-4000=0){
+                        let currentLevel = currentLevel-1;
+                    }
+
+                    do map.drawMap(currentLevel);
+                    do p.draw();
+                    do p.drawStatus();
                 }
             }
 
+            
         }
         return win;
     }

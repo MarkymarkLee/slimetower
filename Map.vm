@@ -1,8 +1,8 @@
 function Map.new 4
-push constant 2
+push constant 3
 call Memory.alloc 1
 pop pointer 0
-push constant 4
+push constant 5
 push constant 16
 call Math.multiply 2
 push constant 24
@@ -14,6 +14,8 @@ pop this 1
 push this 0
 call Map.createmap 1
 pop temp 0
+push constant 0
+pop this 2
 push pointer 0
 return
 function Map.dispose 0
@@ -49,6 +51,19 @@ add
 push argument 3
 add
 return
+function Map.seenboss 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Map.seeboss 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+pop this 2
+push constant 0
+return
 function Map.getMob 0
 push argument 0
 pop pointer 0
@@ -78,6 +93,23 @@ call Map.getindex 4
 push this 0
 add
 push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Map.fire 0
+push argument 0
+pop pointer 0
+push pointer 0
+push constant 4
+push argument 1
+push argument 2
+call Map.getindex 4
+push this 0
+add
+push constant 5000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -209,6 +241,19 @@ call Pic.drawstairsdown 1
 pop temp 0
 label IF_FALSE6
 label IF_FALSE4
+push local 2
+push constant 1000
+call Math.divide 2
+push constant 5
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push local 4
+push constant 2
+call Object.draw 2
+pop temp 0
+label IF_FALSE7
 push local 1
 push constant 1
 add
@@ -451,7 +496,7 @@ pop that 0
 push constant 28
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -467,7 +512,7 @@ pop that 0
 push constant 30
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -491,7 +536,7 @@ pop that 0
 push constant 33
 push argument 0
 add
-push constant 2200
+push constant 2100
 pop temp 0
 pop pointer 1
 push temp 0
@@ -499,7 +544,7 @@ pop that 0
 push constant 34
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -547,7 +592,7 @@ pop that 0
 push constant 40
 push argument 0
 add
-push constant 2001
+push constant 2101
 pop temp 0
 pop pointer 1
 push temp 0
@@ -763,7 +808,7 @@ pop that 0
 push constant 67
 push argument 0
 add
-push constant 2201
+push constant 2001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -787,7 +832,7 @@ pop that 0
 push constant 70
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -843,7 +888,7 @@ pop that 0
 push constant 77
 push argument 0
 add
-push constant 2202
+push constant 2102
 pop temp 0
 pop pointer 1
 push temp 0
@@ -891,7 +936,7 @@ pop that 0
 push constant 83
 push argument 0
 add
-push constant 2100
+push constant 2200
 pop temp 0
 pop pointer 1
 push temp 0
@@ -915,7 +960,7 @@ pop that 0
 push constant 86
 push argument 0
 add
-push constant 2203
+push constant 2002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1003,7 +1048,7 @@ pop that 0
 push constant 97
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1083,7 +1128,7 @@ pop that 0
 push constant 107
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1227,7 +1272,7 @@ pop that 0
 push constant 125
 push argument 0
 add
-push constant 2002
+push constant 2103
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1275,7 +1320,7 @@ pop that 0
 push constant 131
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1283,7 +1328,7 @@ pop that 0
 push constant 132
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1387,7 +1432,7 @@ pop that 0
 push constant 145
 push argument 0
 add
-push constant 2204
+push constant 2003
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1595,7 +1640,7 @@ pop that 0
 push constant 171
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1611,7 +1656,7 @@ pop that 0
 push constant 173
 push argument 0
 add
-push constant 2101
+push constant 2004
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1627,7 +1672,7 @@ pop that 0
 push constant 175
 push argument 0
 add
-push constant 2102
+push constant 2201
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1643,7 +1688,7 @@ pop that 0
 push constant 177
 push argument 0
 add
-push constant 2103
+push constant 2104
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1683,7 +1728,7 @@ pop that 0
 push constant 182
 push argument 0
 add
-push constant 2003
+push constant 2202
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1699,7 +1744,7 @@ pop that 0
 push constant 184
 push argument 0
 add
-push constant 2104
+push constant 2005
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1819,7 +1864,7 @@ pop that 0
 push constant 199
 push argument 0
 add
-push constant 2105
+push constant 2006
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1891,7 +1936,7 @@ pop that 0
 push constant 208
 push argument 0
 add
-push constant 2004
+push constant 2007
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1931,7 +1976,7 @@ pop that 0
 push constant 213
 push argument 0
 add
-push constant 2106
+push constant 2105
 pop temp 0
 pop pointer 1
 push temp 0
@@ -1939,7 +1984,7 @@ pop that 0
 push constant 214
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2019,7 +2064,7 @@ pop that 0
 push constant 224
 push argument 0
 add
-push constant 2005
+push constant 2203
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2035,7 +2080,7 @@ pop that 0
 push constant 226
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2083,7 +2128,7 @@ pop that 0
 push constant 232
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2203,7 +2248,7 @@ pop that 0
 push constant 247
 push argument 0
 add
-push constant 2205
+push constant 2008
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2275,7 +2320,7 @@ pop that 0
 push constant 256
 push argument 0
 add
-push constant 2206
+push constant 2009
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2451,7 +2496,7 @@ pop that 0
 push constant 278
 push argument 0
 add
-push constant 2207
+push constant 2010
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2571,7 +2616,7 @@ pop that 0
 push constant 293
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2619,7 +2664,7 @@ pop that 0
 push constant 299
 push argument 0
 add
-push constant 2208
+push constant 2106
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2635,7 +2680,7 @@ pop that 0
 push constant 301
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2651,7 +2696,7 @@ pop that 0
 push constant 303
 push argument 0
 add
-push constant 2006
+push constant 2204
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2667,7 +2712,7 @@ pop that 0
 push constant 305
 push argument 0
 add
-push constant 2209
+push constant 2107
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2691,7 +2736,7 @@ pop that 0
 push constant 308
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2699,7 +2744,7 @@ pop that 0
 push constant 309
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2755,7 +2800,7 @@ pop that 0
 push constant 316
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2803,7 +2848,7 @@ pop that 0
 push constant 322
 push argument 0
 add
-push constant 2007
+push constant 2205
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2827,7 +2872,7 @@ pop that 0
 push constant 325
 push argument 0
 add
-push constant 2008
+push constant 2108
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2843,7 +2888,7 @@ pop that 0
 push constant 327
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -2987,7 +3032,7 @@ pop that 0
 push constant 345
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3011,7 +3056,7 @@ pop that 0
 push constant 348
 push argument 0
 add
-push constant 2107
+push constant 2011
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3499,7 +3544,7 @@ pop that 0
 push constant 409
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3507,7 +3552,7 @@ pop that 0
 push constant 410
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3515,7 +3560,7 @@ pop that 0
 push constant 411
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3539,7 +3584,7 @@ pop that 0
 push constant 414
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3547,7 +3592,7 @@ pop that 0
 push constant 415
 push argument 0
 add
-push constant 2009
+push constant 2109
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3603,7 +3648,7 @@ pop that 0
 push constant 422
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3635,7 +3680,7 @@ pop that 0
 push constant 426
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3651,7 +3696,7 @@ pop that 0
 push constant 428
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3707,7 +3752,7 @@ pop that 0
 push constant 435
 push argument 0
 add
-push constant 2108
+push constant 2110
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3723,7 +3768,7 @@ pop that 0
 push constant 437
 push argument 0
 add
-push constant 2109
+push constant 2012
 pop temp 0
 pop pointer 1
 push temp 0
@@ -3779,7 +3824,7 @@ pop that 0
 push constant 444
 push argument 0
 add
-push constant 2210
+push constant 2111
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4075,7 +4120,7 @@ pop that 0
 push constant 481
 push argument 0
 add
-push constant 2110
+push constant 2013
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4163,7 +4208,7 @@ pop that 0
 push constant 492
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4475,7 +4520,7 @@ pop that 0
 push constant 531
 push argument 0
 add
-push constant 2111
+push constant 2206
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4491,7 +4536,7 @@ pop that 0
 push constant 533
 push argument 0
 add
-push constant 2112
+push constant 2014
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4547,7 +4592,7 @@ pop that 0
 push constant 540
 push argument 0
 add
-push constant 2113
+push constant 2112
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4563,7 +4608,7 @@ pop that 0
 push constant 542
 push argument 0
 add
-push constant 2114
+push constant 2113
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4579,7 +4624,7 @@ pop that 0
 push constant 544
 push argument 0
 add
-push constant 2010
+push constant 2015
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4595,7 +4640,7 @@ pop that 0
 push constant 546
 push argument 0
 add
-push constant 2211
+push constant 2114
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4611,7 +4656,7 @@ pop that 0
 push constant 548
 push argument 0
 add
-push constant 2011
+push constant 2115
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4779,7 +4824,7 @@ pop that 0
 push constant 569
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4843,7 +4888,7 @@ pop that 0
 push constant 577
 push argument 0
 add
-push constant 2012
+push constant 2207
 pop temp 0
 pop pointer 1
 push temp 0
@@ -4971,7 +5016,7 @@ pop that 0
 push constant 593
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5067,7 +5112,7 @@ pop that 0
 push constant 605
 push argument 0
 add
-push constant 2115
+push constant 2116
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5123,7 +5168,7 @@ pop that 0
 push constant 612
 push argument 0
 add
-push constant 2013
+push constant 2016
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5139,7 +5184,7 @@ pop that 0
 push constant 614
 push argument 0
 add
-push constant 2116
+push constant 2208
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5155,7 +5200,7 @@ pop that 0
 push constant 616
 push argument 0
 add
-push constant 2014
+push constant 2017
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5171,7 +5216,7 @@ pop that 0
 push constant 618
 push argument 0
 add
-push constant 2117
+push constant 2209
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5187,7 +5232,7 @@ pop that 0
 push constant 620
 push argument 0
 add
-push constant 2118
+push constant 2117
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5203,7 +5248,7 @@ pop that 0
 push constant 622
 push argument 0
 add
-push constant 2015
+push constant 2210
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5315,7 +5360,7 @@ pop that 0
 push constant 636
 push argument 0
 add
-push constant 2016
+push constant 2211
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5507,7 +5552,7 @@ pop that 0
 push constant 660
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5611,7 +5656,7 @@ pop that 0
 push constant 673
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5643,7 +5688,7 @@ pop that 0
 push constant 677
 push argument 0
 add
-push constant 2119
+push constant 2212
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5699,7 +5744,7 @@ pop that 0
 push constant 684
 push argument 0
 add
-push constant 2017
+push constant 2213
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5803,7 +5848,7 @@ pop that 0
 push constant 697
 push argument 0
 add
-push constant 2120
+push constant 2214
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5811,7 +5856,7 @@ pop that 0
 push constant 698
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5835,7 +5880,7 @@ pop that 0
 push constant 701
 push argument 0
 add
-push constant 2212
+push constant 2215
 pop temp 0
 pop pointer 1
 push temp 0
@@ -5891,7 +5936,7 @@ pop that 0
 push constant 708
 push argument 0
 add
-push constant 2213
+push constant 2018
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6003,7 +6048,7 @@ pop that 0
 push constant 722
 push argument 0
 add
-push constant 2214
+push constant 2118
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6099,7 +6144,7 @@ pop that 0
 push constant 734
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6115,7 +6160,7 @@ pop that 0
 push constant 736
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6147,7 +6192,7 @@ pop that 0
 push constant 740
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6163,7 +6208,7 @@ pop that 0
 push constant 742
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6571,7 +6616,7 @@ pop that 0
 push constant 793
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6579,7 +6624,7 @@ pop that 0
 push constant 794
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6587,7 +6632,7 @@ pop that 0
 push constant 795
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6595,7 +6640,7 @@ pop that 0
 push constant 796
 push argument 0
 add
-push constant 2018
+push constant 2019
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6603,7 +6648,7 @@ pop that 0
 push constant 797
 push argument 0
 add
-push constant 2121
+push constant 2020
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6619,7 +6664,7 @@ pop that 0
 push constant 799
 push argument 0
 add
-push constant 2215
+push constant 2021
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6715,7 +6760,7 @@ pop that 0
 push constant 811
 push argument 0
 add
-push constant 2216
+push constant 2119
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6723,7 +6768,7 @@ pop that 0
 push constant 812
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6731,7 +6776,7 @@ pop that 0
 push constant 813
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6771,7 +6816,7 @@ pop that 0
 push constant 818
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6955,7 +7000,7 @@ pop that 0
 push constant 841
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6963,7 +7008,7 @@ pop that 0
 push constant 842
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -6971,7 +7016,7 @@ pop that 0
 push constant 843
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7003,7 +7048,7 @@ pop that 0
 push constant 847
 push argument 0
 add
-push constant 2019
+push constant 2216
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7019,7 +7064,7 @@ pop that 0
 push constant 849
 push argument 0
 add
-push constant 2020
+push constant 2022
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7027,7 +7072,7 @@ pop that 0
 push constant 850
 push argument 0
 add
-push constant 2021
+push constant 2120
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7035,7 +7080,7 @@ pop that 0
 push constant 851
 push argument 0
 add
-push constant 2122
+push constant 2023
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7083,7 +7128,7 @@ pop that 0
 push constant 857
 push argument 0
 add
-push constant 2022
+push constant 2217
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7099,7 +7144,7 @@ pop that 0
 push constant 859
 push argument 0
 add
-push constant 2023
+push constant 2218
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7299,7 +7344,7 @@ pop that 0
 push constant 884
 push argument 0
 add
-push constant 2217
+push constant 2219
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7315,7 +7360,7 @@ pop that 0
 push constant 886
 push argument 0
 add
-push constant 2218
+push constant 2024
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7339,7 +7384,7 @@ pop that 0
 push constant 889
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7387,7 +7432,7 @@ pop that 0
 push constant 895
 push argument 0
 add
-push constant 2123
+push constant 2025
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7539,7 +7584,7 @@ pop that 0
 push constant 914
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7547,7 +7592,7 @@ pop that 0
 push constant 915
 push argument 0
 add
-push constant 2219
+push constant 2026
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7627,7 +7672,7 @@ pop that 0
 push constant 925
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7731,7 +7776,7 @@ pop that 0
 push constant 938
 push argument 0
 add
-push constant 2024
+push constant 2220
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7739,7 +7784,7 @@ pop that 0
 push constant 939
 push argument 0
 add
-push constant 2025
+push constant 2221
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7747,7 +7792,7 @@ pop that 0
 push constant 940
 push argument 0
 add
-push constant 2220
+push constant 2222
 pop temp 0
 pop pointer 1
 push temp 0
@@ -7787,7 +7832,7 @@ pop that 0
 push constant 945
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8275,7 +8320,7 @@ pop that 0
 push constant 1006
 push argument 0
 add
-push constant 2221
+push constant 2121
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8467,7 +8512,7 @@ pop that 0
 push constant 1030
 push argument 0
 add
-push constant 2026
+push constant 2223
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8507,7 +8552,7 @@ pop that 0
 push constant 1035
 push argument 0
 add
-push constant 2124
+push constant 2122
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8515,7 +8560,7 @@ pop that 0
 push constant 1036
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8523,7 +8568,7 @@ pop that 0
 push constant 1037
 push argument 0
 add
-push constant 2027
+push constant 2123
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8531,7 +8576,7 @@ pop that 0
 push constant 1038
 push argument 0
 add
-push constant 2028
+push constant 2027
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8547,7 +8592,7 @@ pop that 0
 push constant 1040
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8555,7 +8600,7 @@ pop that 0
 push constant 1041
 push argument 0
 add
-push constant 2125
+push constant 2124
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8579,7 +8624,7 @@ pop that 0
 push constant 1044
 push argument 0
 add
-push constant 2029
+push constant 2224
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8699,7 +8744,7 @@ pop that 0
 push constant 1059
 push argument 0
 add
-push constant 0
+push constant 1000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8747,7 +8792,7 @@ pop that 0
 push constant 1065
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8835,7 +8880,7 @@ pop that 0
 push constant 1076
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8875,7 +8920,7 @@ pop that 0
 push constant 1081
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -8883,7 +8928,7 @@ pop that 0
 push constant 1082
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9083,7 +9128,7 @@ pop that 0
 push constant 1107
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9107,7 +9152,7 @@ pop that 0
 push constant 1110
 push argument 0
 add
-push constant 2222
+push constant 2125
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9131,7 +9176,7 @@ pop that 0
 push constant 1113
 push argument 0
 add
-push constant 2030
+push constant 2225
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9147,7 +9192,7 @@ pop that 0
 push constant 1115
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9155,7 +9200,7 @@ pop that 0
 push constant 1116
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9219,7 +9264,7 @@ pop that 0
 push constant 1124
 push argument 0
 add
-push constant 2126
+push constant 2028
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9235,7 +9280,7 @@ pop that 0
 push constant 1126
 push argument 0
 add
-push constant 2031
+push constant 2126
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9643,7 +9688,7 @@ pop that 0
 push constant 1177
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9667,7 +9712,7 @@ pop that 0
 push constant 1180
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9683,7 +9728,7 @@ pop that 0
 push constant 1182
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9707,7 +9752,7 @@ pop that 0
 push constant 1185
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9715,7 +9760,7 @@ pop that 0
 push constant 1186
 push argument 0
 add
-push constant 2032
+push constant 2127
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9779,7 +9824,7 @@ pop that 0
 push constant 1194
 push argument 0
 add
-push constant 2033
+push constant 2029
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9835,7 +9880,7 @@ pop that 0
 push constant 1201
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9843,7 +9888,7 @@ pop that 0
 push constant 1202
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9851,7 +9896,7 @@ pop that 0
 push constant 1203
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9875,7 +9920,7 @@ pop that 0
 push constant 1206
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9891,7 +9936,7 @@ pop that 0
 push constant 1208
 push argument 0
 add
-push constant 2034
+push constant 2030
 pop temp 0
 pop pointer 1
 push temp 0
@@ -9947,7 +9992,7 @@ pop that 0
 push constant 1215
 push argument 0
 add
-push constant 2127
+push constant 2031
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10027,7 +10072,7 @@ pop that 0
 push constant 1225
 push argument 0
 add
-push constant 2128
+push constant 2032
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10163,7 +10208,7 @@ pop that 0
 push constant 1242
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10219,7 +10264,7 @@ pop that 0
 push constant 1249
 push argument 0
 add
-push constant 2035
+push constant 2033
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10259,7 +10304,7 @@ pop that 0
 push constant 1254
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10283,7 +10328,7 @@ pop that 0
 push constant 1257
 push argument 0
 add
-push constant 2036
+push constant 2034
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10323,7 +10368,7 @@ pop that 0
 push constant 1262
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10347,7 +10392,7 @@ pop that 0
 push constant 1265
 push argument 0
 add
-push constant 2037
+push constant 2226
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10411,7 +10456,7 @@ pop that 0
 push constant 1273
 push argument 0
 add
-push constant 2038
+push constant 2227
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10443,7 +10488,7 @@ pop that 0
 push constant 1277
 push argument 0
 add
-push constant 2129
+push constant 2035
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10451,7 +10496,7 @@ pop that 0
 push constant 1278
 push argument 0
 add
-push constant 2039
+push constant 2036
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10475,7 +10520,7 @@ pop that 0
 push constant 1281
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10499,7 +10544,7 @@ pop that 0
 push constant 1284
 push argument 0
 add
-push constant 2040
+push constant 2037
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10571,7 +10616,7 @@ pop that 0
 push constant 1293
 push argument 0
 add
-push constant 2223
+push constant 2038
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10603,7 +10648,7 @@ pop that 0
 push constant 1297
 push argument 0
 add
-push constant 2130
+push constant 2128
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10659,7 +10704,7 @@ pop that 0
 push constant 1304
 push argument 0
 add
-push constant 2131
+push constant 2129
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10707,7 +10752,7 @@ pop that 0
 push constant 1310
 push argument 0
 add
-push constant 2132
+push constant 2228
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10755,7 +10800,7 @@ pop that 0
 push constant 1316
 push argument 0
 add
-push constant 2224
+push constant 2130
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10771,7 +10816,7 @@ pop that 0
 push constant 1318
 push argument 0
 add
-push constant 2041
+push constant 2229
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10795,7 +10840,7 @@ pop that 0
 push constant 1321
 push argument 0
 add
-push constant 2133
+push constant 2039
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10811,7 +10856,7 @@ pop that 0
 push constant 1323
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10827,7 +10872,7 @@ pop that 0
 push constant 1325
 push argument 0
 add
-push constant 2042
+push constant 2040
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10835,7 +10880,7 @@ pop that 0
 push constant 1326
 push argument 0
 add
-push constant 2225
+push constant 2131
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10851,7 +10896,7 @@ pop that 0
 push constant 1328
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10931,7 +10976,7 @@ pop that 0
 push constant 1338
 push argument 0
 add
-push constant 2134
+push constant 2230
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10955,7 +11000,7 @@ pop that 0
 push constant 1341
 push argument 0
 add
-push constant 2135
+push constant 2041
 pop temp 0
 pop pointer 1
 push temp 0
@@ -10987,7 +11032,7 @@ pop that 0
 push constant 1345
 push argument 0
 add
-push constant 2136
+push constant 2042
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11027,7 +11072,7 @@ pop that 0
 push constant 1350
 push argument 0
 add
-push constant 3000
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11067,7 +11112,7 @@ pop that 0
 push constant 1355
 push argument 0
 add
-push constant 2226
+push constant 2132
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11075,7 +11120,7 @@ pop that 0
 push constant 1356
 push argument 0
 add
-push constant 2137
+push constant 2231
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11115,7 +11160,7 @@ pop that 0
 push constant 1361
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11147,7 +11192,7 @@ pop that 0
 push constant 1365
 push argument 0
 add
-push constant 2227
+push constant 2232
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11179,7 +11224,7 @@ pop that 0
 push constant 1369
 push argument 0
 add
-push constant 2228
+push constant 2043
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11195,7 +11240,7 @@ pop that 0
 push constant 1371
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11211,7 +11256,7 @@ pop that 0
 push constant 1373
 push argument 0
 add
-push constant 2229
+push constant 2233
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11219,7 +11264,7 @@ pop that 0
 push constant 1374
 push argument 0
 add
-push constant 2138
+push constant 2133
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11235,7 +11280,7 @@ pop that 0
 push constant 1376
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11243,7 +11288,7 @@ pop that 0
 push constant 1377
 push argument 0
 add
-push constant 2230
+push constant 2134
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11259,7 +11304,7 @@ pop that 0
 push constant 1379
 push argument 0
 add
-push constant 2139
+push constant 2135
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11267,7 +11312,7 @@ pop that 0
 push constant 1380
 push argument 0
 add
-push constant 2140
+push constant 2044
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11331,7 +11376,7 @@ pop that 0
 push constant 1388
 push argument 0
 add
-push constant 2231
+push constant 2234
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11339,7 +11384,7 @@ pop that 0
 push constant 1389
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11347,7 +11392,7 @@ pop that 0
 push constant 1390
 push argument 0
 add
-push constant 2043
+push constant 2235
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11371,7 +11416,7 @@ pop that 0
 push constant 1393
 push argument 0
 add
-push constant 2044
+push constant 2045
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11411,7 +11456,7 @@ pop that 0
 push constant 1398
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11451,7 +11496,7 @@ pop that 0
 push constant 1403
 push argument 0
 add
-push constant 2045
+push constant 2046
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11459,7 +11504,7 @@ pop that 0
 push constant 1404
 push argument 0
 add
-push constant 2046
+push constant 2136
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11531,7 +11576,7 @@ pop that 0
 push constant 1413
 push argument 0
 add
-push constant 2141
+push constant 2137
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11563,7 +11608,7 @@ pop that 0
 push constant 1417
 push argument 0
 add
-push constant 2142
+push constant 2138
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11595,7 +11640,7 @@ pop that 0
 push constant 1421
 push argument 0
 add
-push constant 2232
+push constant 2047
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11603,7 +11648,7 @@ pop that 0
 push constant 1422
 push argument 0
 add
-push constant 2233
+push constant 2139
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11643,7 +11688,7 @@ pop that 0
 push constant 1427
 push argument 0
 add
-push constant 3001
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11675,7 +11720,7 @@ pop that 0
 push constant 1431
 push argument 0
 add
-push constant 2143
+push constant 2048
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11707,7 +11752,7 @@ pop that 0
 push constant 1435
 push argument 0
 add
-push constant 2047
+push constant 2049
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11755,7 +11800,7 @@ pop that 0
 push constant 1441
 push argument 0
 add
-push constant 2234
+push constant 2050
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11795,7 +11840,7 @@ pop that 0
 push constant 1446
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11827,7 +11872,7 @@ pop that 0
 push constant 1450
 push argument 0
 add
-push constant 3002
+push constant 3001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11851,7 +11896,7 @@ pop that 0
 push constant 1453
 push argument 0
 add
-push constant 3000
+push constant 3002
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11875,7 +11920,7 @@ pop that 0
 push constant 1456
 push argument 0
 add
-push constant 2144
+push constant 2140
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11891,7 +11936,7 @@ pop that 0
 push constant 1458
 push argument 0
 add
-push constant 2145
+push constant 2236
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11907,7 +11952,7 @@ pop that 0
 push constant 1460
 push argument 0
 add
-push constant 2048
+push constant 2141
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11947,7 +11992,7 @@ pop that 0
 push constant 1465
 push argument 0
 add
-push constant 2235
+push constant 2237
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11979,7 +12024,7 @@ pop that 0
 push constant 1469
 push argument 0
 add
-push constant 2146
+push constant 2238
 pop temp 0
 pop pointer 1
 push temp 0
@@ -11987,7 +12032,7 @@ pop that 0
 push constant 1470
 push argument 0
 add
-push constant 2049
+push constant 2239
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12003,7 +12048,7 @@ pop that 0
 push constant 1472
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12011,7 +12056,7 @@ pop that 0
 push constant 1473
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12027,7 +12072,7 @@ pop that 0
 push constant 1475
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12035,7 +12080,7 @@ pop that 0
 push constant 1476
 push argument 0
 add
-push constant 1000
+push constant 0
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12043,7 +12088,7 @@ pop that 0
 push constant 1477
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12059,7 +12104,7 @@ pop that 0
 push constant 1479
 push argument 0
 add
-push constant 3001
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12067,7 +12112,7 @@ pop that 0
 push constant 1480
 push argument 0
 add
-push constant 2147
+push constant 2142
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12083,7 +12128,7 @@ pop that 0
 push constant 1482
 push argument 0
 add
-push constant 2050
+push constant 2143
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12091,7 +12136,7 @@ pop that 0
 push constant 1483
 push argument 0
 add
-push constant 3002
+push constant 3000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12099,7 +12144,7 @@ pop that 0
 push constant 1484
 push argument 0
 add
-push constant 2148
+push constant 2144
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12139,7 +12184,7 @@ pop that 0
 push constant 1489
 push argument 0
 add
-push constant 0
+push constant 2240
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12195,7 +12240,7 @@ pop that 0
 push constant 1496
 push argument 0
 add
-push constant 2052
+push constant 2241
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12203,7 +12248,7 @@ pop that 0
 push constant 1497
 push argument 0
 add
-push constant 2236
+push constant 2145
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12211,7 +12256,7 @@ pop that 0
 push constant 1498
 push argument 0
 add
-push constant 0
+push constant 1000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12219,7 +12264,7 @@ pop that 0
 push constant 1499
 push argument 0
 add
-push constant 0
+push constant 4001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12227,7 +12272,7 @@ pop that 0
 push constant 1500
 push argument 0
 add
-push constant 0
+push constant 4001
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12235,7 +12280,7 @@ pop that 0
 push constant 1501
 push argument 0
 add
-push constant 0
+push constant 1000
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12251,7 +12296,7 @@ pop that 0
 push constant 1503
 push argument 0
 add
-push constant 2149
+push constant 2052
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12283,7 +12328,7 @@ pop that 0
 push constant 1507
 push argument 0
 add
-push constant 2237
+push constant 2146
 pop temp 0
 pop pointer 1
 push temp 0
@@ -12505,6 +12550,3078 @@ pop pointer 1
 push temp 0
 pop that 0
 push constant 1535
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1536
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1537
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1538
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1539
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1540
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1541
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1542
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1543
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1544
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1545
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1546
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1547
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1548
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1549
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1550
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1551
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1552
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1553
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1554
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1555
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1556
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1557
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1558
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1559
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1560
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1561
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1562
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1563
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1564
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1565
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1566
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1567
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1568
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1569
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1570
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1571
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1572
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1573
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1574
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1575
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1576
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1577
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1578
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1579
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1580
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1581
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1582
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1583
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1584
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1585
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1586
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1587
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1588
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1589
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1590
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1591
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1592
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1593
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1594
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1595
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1596
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1597
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1598
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1599
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1600
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1601
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1602
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1603
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1604
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1605
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1606
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1607
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1608
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1609
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1610
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1611
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1612
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1613
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1614
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1615
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1616
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1617
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1618
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1619
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1620
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1621
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1622
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1623
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1624
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1625
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1626
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1627
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1628
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1629
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1630
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1631
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1632
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1633
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1634
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1635
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1636
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1637
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1638
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1639
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1640
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1641
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1642
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1643
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1644
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1645
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1646
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1647
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1648
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1649
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1650
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1651
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1652
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1653
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1654
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1655
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1656
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1657
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1658
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1659
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1660
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1661
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1662
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1663
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1664
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1665
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1666
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1667
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1668
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1669
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1670
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1671
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1672
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1673
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1674
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1675
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1676
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1677
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1678
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1679
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1680
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1681
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1682
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1683
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1684
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1685
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1686
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1687
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1688
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1689
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1690
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1691
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1692
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1693
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1694
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1695
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1696
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1697
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1698
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1699
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1700
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1701
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1702
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1703
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1704
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1705
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1706
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1707
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1708
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1709
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1710
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1711
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1712
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1713
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1714
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1715
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1716
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1717
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1718
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1719
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1720
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1721
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1722
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1723
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1724
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1725
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1726
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1727
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1728
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1729
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1730
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1731
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1732
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1733
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1734
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1735
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1736
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1737
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1738
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1739
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1740
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1741
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1742
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1743
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1744
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1745
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1746
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1747
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1748
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1749
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1750
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1751
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1752
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1753
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1754
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1755
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1756
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1757
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1758
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1759
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1760
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1761
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1762
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1763
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1764
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1765
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1766
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1767
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1768
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1769
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1770
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1771
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1772
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1773
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1774
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1775
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1776
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1777
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1778
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1779
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1780
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1781
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1782
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1783
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1784
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1785
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1786
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1787
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1788
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1789
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1790
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1791
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1792
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1793
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1794
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1795
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1796
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1797
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1798
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1799
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1800
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1801
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1802
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1803
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1804
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1805
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1806
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1807
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1808
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1809
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1810
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1811
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1812
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1813
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1814
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1815
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1816
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1817
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1818
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1819
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1820
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1821
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1822
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1823
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1824
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1825
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1826
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1827
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1828
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1829
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1830
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1831
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1832
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1833
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1834
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1835
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1836
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1837
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1838
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1839
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1840
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1841
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1842
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1843
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1844
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1845
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1846
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1847
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1848
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1849
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1850
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1851
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1852
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1853
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1854
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1855
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1856
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1857
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1858
+push argument 0
+add
+push constant 5000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1859
+push argument 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1860
+push argument 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1861
+push argument 0
+add
+push constant 5000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1862
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1863
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1864
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1865
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1866
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1867
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1868
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1869
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1870
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1871
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1872
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1873
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1874
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1875
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1876
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1877
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1878
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1879
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1880
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1881
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1882
+push argument 0
+add
+push constant 5000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1883
+push argument 0
+add
+push constant 4000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1884
+push argument 0
+add
+push constant 4000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1885
+push argument 0
+add
+push constant 5000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1886
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1887
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1888
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1889
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1890
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1891
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1892
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1893
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1894
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1895
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1896
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1897
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1898
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1899
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1900
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1901
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1902
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1903
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1904
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1905
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1906
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1907
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1908
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1909
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1910
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1911
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1912
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1913
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1914
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1915
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1916
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1917
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1918
+push argument 0
+add
+push constant 1000
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1919
 push argument 0
 add
 push constant 1000
