@@ -68,20 +68,20 @@ class Object{
         }
         if(type=2){
             do Memory.poke(memAddress+0, 0);
-            do Memory.poke(memAddress+32, 128);
-            do Memory.poke(memAddress+64, 4228);
-            do Memory.poke(memAddress+96, 2244);
-            do Memory.poke(memAddress+128, 5450);
-            do Memory.poke(memAddress+160, 5426);
-            do Memory.poke(memAddress+192, 8722);
-            do Memory.poke(memAddress+224, 8196);
-            do Memory.poke(memAddress+256, 8712);
-            do Memory.poke(memAddress+288, 9572);
-            do Memory.poke(memAddress+320, 5540);
-            do Memory.poke(memAddress+352, 5156);
-            do Memory.poke(memAddress+384, 4680);
-            do Memory.poke(memAddress+416, 3504);
-            do Memory.poke(memAddress+448, 960);
+            do Memory.poke(memAddress+32, 32766);
+            do Memory.poke(memAddress+64, 16642);
+            do Memory.poke(memAddress+96, 16642);
+            do Memory.poke(memAddress+128, 16642);
+            do Memory.poke(memAddress+160, 16642);
+            do Memory.poke(memAddress+192, 32510);
+            do Memory.poke(memAddress+224, 16642);
+            do Memory.poke(memAddress+256, 16642);
+            do Memory.poke(memAddress+288, 16642);
+            do Memory.poke(memAddress+320, 16642);
+            do Memory.poke(memAddress+352, 8452);
+            do Memory.poke(memAddress+384, 4360);
+            do Memory.poke(memAddress+416, 2320);
+            do Memory.poke(memAddress+448, 2016);
             do Memory.poke(memAddress+480, 0);
             return ;
         }
